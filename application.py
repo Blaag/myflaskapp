@@ -9,7 +9,7 @@ application.debug = True
 @application.route('/', methods=['GET'])
 def hello():
     ps = subprocess.Popen(('date', '+%a %H:%M:%S'), stdout=subprocess.PIPE)
-    output = subprocess.check_output(('/usr/bin/figlet', '-f', '/usr/bin/standard.flf'), stdin=ps.stdout)
+    output = subprocess.check_output(('/usr/bin/figlet', '-f', '/tmp/figlet-2.2.5/fonts/standard.flf'), stdin=ps.stdout)
     ps.wait()
     return '<p><pre>' + str(output, 'utf-8') + '</pre></p>'
     #return '<p><pre>hello world</pre></p>'
